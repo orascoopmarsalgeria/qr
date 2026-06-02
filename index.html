@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>OraScoop Mars Algeria | بطاقة رقمية احترافية</title>
+  <title>ORASCOOP Mars Algeria | بطاقة رقمية احترافية</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *,
@@ -16,7 +16,7 @@
 
     :root {
       --bg: #eef2f5;
-      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-bg: rgba(255, 255, 255, 0.96);
       --glass-edge: rgba(255, 255, 255, 0.5);
       --dark: #1e2a32;
       --primary-red: #b13e3a;
@@ -65,30 +65,41 @@
       }
     }
 
-    /* ========= GLASS BANNER ========= */
+    /* ========= GLASS BANNER - IMAGE FILLS PROPERLY ========= */
     .glass-banner {
       position: relative;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('2.jpg');
-      background-size: cover;
-      background-position: center 30%;
-      padding: 28px 24px 32px 24px;
+      min-height: 220px;
       isolation: isolate;
       overflow: hidden;
     }
 
-    /* glass effect layer */
+    /* Background image - fills completely */
+    .banner-bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('2.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    /* Glass overlay effect */
     .glass-banner::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(20, 25, 35, 0.35);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      z-index: 0;
+      background: rgba(15, 20, 30, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1;
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     }
 
-    /* shiny accent line */
+    /* Gold accent line at bottom */
     .glass-banner::after {
       content: "";
       position: absolute;
@@ -97,7 +108,7 @@
       right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--primary-red), var(--primary-gold), var(--gold-light), var(--primary-red));
-      z-index: 2;
+      z-index: 3;
     }
 
     .banner-content {
@@ -107,11 +118,12 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      padding: 28px 24px 32px 24px;
     }
 
     /* improved logo with glass ring */
     .logo-wrapper {
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(8px);
       border-radius: 100px;
       padding: 6px;
@@ -121,8 +133,8 @@
     }
 
     .logo-img {
-      width: 82px;
-      height: 82px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
@@ -133,7 +145,7 @@
 
     .company-name {
       font-family: 'Syne', sans-serif;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 800;
       letter-spacing: -0.5px;
       background: linear-gradient(135deg, #FFF9E6, #FFE8B5);
@@ -142,7 +154,16 @@
       color: transparent;
       text-shadow: 0 2px 5px rgba(0,0,0,0.2);
       margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .company-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 240, 180, 0.95);
+      letter-spacing: 0.5px;
       margin-bottom: 10px;
+      backdrop-filter: blur(2px);
     }
 
     .badge-group {
@@ -154,11 +175,11 @@
     }
 
     .glass-badge {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       padding: 5px 12px;
       border-radius: 60px;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(4px);
       border: 1px solid rgba(201, 160, 61, 0.7);
       color: #fbe8b0;
@@ -176,7 +197,7 @@
       height: 1px;
       background: radial-gradient(circle, var(--primary-gold) 20%, transparent 80%);
       opacity: 0.5;
-      margin: 0 0;
+      margin: 0;
     }
 
     /* card body */
@@ -348,6 +369,29 @@
       transform: scale(0.98);
     }
 
+    /* description text */
+    .company-description {
+      background: rgba(201, 160, 61, 0.08);
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin-top: 6px;
+      text-align: center;
+      border-right: 3px solid var(--primary-gold);
+    }
+    .company-description p {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+    .company-description small {
+      font-size: 11px;
+      color: var(--primary-gold);
+      font-weight: 700;
+      display: block;
+      margin-top: 6px;
+    }
+
     /* footer */
     .footer {
       text-align: center;
@@ -369,7 +413,7 @@
         padding: 20px 16px;
       }
       .company-name {
-        font-size: 28px;
+        font-size: 24px;
       }
       .logo-img {
         width: 70px;
@@ -387,11 +431,9 @@
       .soc-btn {
         font-size: 9px;
       }
-    }
-
-    /* additional subtle style */
-    .gold-accent {
-      background: linear-gradient(120deg, #c9a03d, #f3cf7a);
+      .banner-content {
+        padding: 22px 18px 26px;
+      }
     }
   </style>
 </head>
@@ -399,17 +441,20 @@
 
 <div class="card">
 
-  <!-- GLASS BANNER SECTION (modern glassmorphism) -->
+  <!-- GLASS BANNER WITH FULL IMAGE COVER -->
   <div class="glass-banner">
+    <div class="banner-bg-image"></div>
     <div class="banner-content">
       <div class="logo-wrapper">
-        <img src="1.jpg" alt="ORASCOOP Logo" class="logo-img" />
+        <img src="1.jpg" alt="ORASCOOP Mars Algeria Logo" class="logo-img" />
       </div>
       <div class="company-name">ORASCOOP</div>
+      <div class="company-sub">Mars Algeria ⚡</div>
       <div class="badge-group">
         <span class="glass-badge red-border">🇩🇿 معتمد من الدولة</span>
         <span class="glass-badge">📹 CCTV & Alarm</span>
         <span class="glass-badge">🏠 Smart Home</span>
+        <span class="glass-badge">🔒 أنظمة أمنية</span>
       </div>
     </div>
   </div>
@@ -417,6 +462,13 @@
   <div class="divider-light"></div>
 
   <div class="body">
+
+    <!-- COMPANY DESCRIPTION SECTION (RESTORED) -->
+    <div class="company-description">
+      <p>🔹 <strong>ORASCOOP Mars Algeria</strong> — رواد في مجال أنظمة المراقبة والإنذار والمنزل الذكي 📡<br>
+      نقدم أحدث حلول الأمن والحماية بجودة عالية وأسعار تنافسية. خدمة موثوقة ومعتمدة في الجزائر.</p>
+      <small>✓ تركيب احترافي ✓ دعم فني 24/7 ✓ ضمان مضمون</small>
+    </div>
 
     <!-- PHONES SECTION -->
     <div>
@@ -431,6 +483,7 @@
           </div>
           <div style="flex:1">
             <div class="phone-num">0560 300 473</div>
+            <div class="phone-tag">الهاتف الأول · الخط الساخن</div>
           </div>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><polyline points="15 18 9 12 15 6"/></svg>
         </a>
@@ -443,6 +496,7 @@
           </div>
           <div style="flex:1">
             <div class="phone-num">0799 708 570</div>
+            <div class="phone-tag">الهاتف الثاني · خدمة الزبائن</div>
           </div>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><polyline points="15 18 9 12 15 6"/></svg>
         </a>
@@ -455,6 +509,7 @@
           </div>
           <div style="flex:1">
             <div class="phone-num">0557 625 961</div>
+            <div class="phone-tag">الهاتف الثالث · دعم تقني</div>
           </div>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"><polyline points="15 18 9 12 15 6"/></svg>
         </a>
@@ -547,7 +602,7 @@
   </div>
 
   <div class="footer">
-    ORASCOOP · العَلمة (سطيف) · <b>حلول ذكية للأنظمة الأمنية</b>
+    ORASCOOP Mars Algeria · العَلمة (سطيف) · <b>حلول ذكية للأنظمة الأمنية</b>
   </div>
 </div>
 
@@ -555,7 +610,7 @@
   function shareCard() {
     if (navigator.share) {
       navigator.share({
-        title: 'ORASCOOP',
+        title: 'ORASCOOP Mars Algeria',
         text: 'شركة متخصصة في أنظمة المراقبة والإنذار والمنزل الذكي | العلمة، الجزائر',
         url: window.location.href
       }).catch(() => console.log('تم إلغاء المشاركة'));
